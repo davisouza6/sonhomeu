@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokai - Sonho Meu</title>
+    <link rel="icon" href="img/logo-simples.png" type="image/x-icon">
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Base -->
+    <link rel="stylesheet" href="produto.css">
+
+    <style>
+        .pagina-marca {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 40px 32px;
+        }
+
+        .header-marca {
+            margin-bottom: 32px;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .header-marca h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-marca a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .header-marca a:hover {
+            color: var(--primary-dark);
+        }
+
+        .grid-marca {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .card-marca {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-marca:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .imagem-card {
+            width: 100%;
+            height: 180px;
+            background: var(--bg-light);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .imagem-card img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .categoria-tag {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            align-self: flex-start;
+        }
+
+        .marca-nome {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .nome-produto {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .btn-ver {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: auto;
+            padding: 10px 16px;
+            background: var(--primary);
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-ver:hover {
+            background: var(--primary-dark);
+        }
+
+        .secao-titulo {
+            grid-column: 1 / -1;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            padding: 16px 0 8px;
+            border-bottom: 2px solid var(--primary-light);
+            margin-bottom: 4px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!--! HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="img/logo-colorida.jpg" alt="Sonho Meu"></a>
+            </div>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="violoes.html" class="nav-link">Violões</a></li>
+                    <li><a href="violinos.html" class="nav-link">Violinos</a></li>
+                    <li><a href="orgaos.html" class="nav-link">Órgãos</a></li>
+                    <li><a href="todos-produtos.html" class="nav-link">Instrumentos</a></li>
+                    <li><a href="index.html#marcas-section" class="nav-link">Marcas</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="carrinho.html" class="cart-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <path fill="currentColor" d="M256 144C256 108.7 284.7 80 320 80C355.3 80 384 108.7 384 144L384 192L256 192L256 144zM208 192L144 192C117.5 192 96 213.5 96 240L96 448C96 501 139 544 192 544L448 544C501 544 544 501 544 448L544 240C544 213.5 522.5 192 496 192L432 192L432 144C432 82.1 381.9 32 320 32C258.1 32 208 82.1 208 144L208 192zM232 240C245.3 240 256 250.7 256 264C256 277.3 245.3 288 232 288C218.7 288 208 277.3 208 264C208 250.7 218.7 240 232 240zM384 264C384 250.7 394.7 240 408 240C421.3 240 432 250.7 432 264C432 277.3 421.3 288 408 288C394.7 288 384 277.3 384 264z"/>
+                    </svg>
+                    <span class="cart-badge">0</span>
+                </a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-controls="navMenu" aria-expanded="false">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </button>
+            </div>
+
+            <div class="nav-overlay" id="navOverlay"></div>
+        </div>
+    </header>
+
+    <!--! CONTEÚDO PRINCIPAL -->
+    <main>
+        <section class="pagina-marca">
+            <div class="header-marca">
+                <h1>Tokai</h1>
+                <a href="index.html">← Voltar para Home</a>
+            </div>
+
+            <div class="grid-marca">
+
+                <!-- ========================================================== -->
+                <!-- TOKAI - TECLAS                                              -->
+                <!-- ========================================================== -->
+                <div class="secao-titulo">Teclas</div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tokata.png" alt="Órgão Tokai"></div>
+                    <span class="categoria-tag">Teclas</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Órgão Eletrônico TOKATA</h3>
+                    <a href="produto.html?sku=tokata" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/md5.png" alt="Órgão Tokai"></div>
+                    <span class="categoria-tag">Teclas</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Órgão Eletrônico MD-5</h3>
+                    <a href="produto.html?sku=md5" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/md10.png" alt="Órgão Tokai"></div>
+                    <span class="categoria-tag">Teclas</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Órgão Eletrônico MD-10</h3>
+                    <a href="produto.html?sku=md10" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/md750.png" alt="Órgão Tokai"></div>
+                    <span class="categoria-tag">Teclas</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Órgão Eletrônico MD-750 GOLD</h3>
+                    <a href="produto.html?sku=md750" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/t1spinet.png" alt="Órgão Tokai"></div>
+                    <span class="categoria-tag">Teclas</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Órgão Eletrônico T-1 SPINET</h3>
+                    <a href="produto.html?sku=t1spinet" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/t1concert.png" alt="Órgão Tokai"></div>
+                    <span class="categoria-tag">Teclas</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Órgão Eletrônico T-1 CONCERT</h3>
+                    <a href="produto.html?sku=t1concert" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tp200c.png" alt="Piano Tokai"></div>
+                    <span class="categoria-tag">Teclas</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Piano Digital TP-200C Móvel Cauda</h3>
+                    <a href="produto.html?sku=tp200c" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tp88c.png" alt="Piano Tokai"></div>
+                    <span class="categoria-tag">Teclas</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Piano Digital TP-88C Móvel Cauda</h3>
+                    <a href="produto.html?sku=tp88c" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tp350c.png" alt="Piano Tokai"></div>
+                    <span class="categoria-tag">Teclas</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Piano Digital TP-350C Móvel Cauda</h3>
+                    <a href="produto.html?sku=tp350c" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- TOKAI - SOPROS                                              -->
+                <!-- ========================================================== -->
+                <div class="secao-titulo">Sopros</div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tcl200.png" alt="Clarinete Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Clarinete Sib 17 Chaves Sistema Boehm</h3>
+                    <a href="produto.html?sku=tcl200" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tcl400.png" alt="Clarinete Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Clarinete Sib Ébano Chaves Prata</h3>
+                    <a href="produto.html?sku=tcl400" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tfl200.png" alt="Flauta Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Flauta Transversal Dó 16 Chaves</h3>
+                    <a href="produto.html?sku=tfl200" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tfl400.png" alt="Flauta Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Flauta Transversal Dó 17 Chaves Abertas</h3>
+                    <a href="produto.html?sku=tfl400" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tfh400.png" alt="Flugelhorn Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Flugelhorn Sib Laqueado</h3>
+                    <a href="produto.html?sku=tfh400" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tsa200.png" alt="Saxofone Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Saxofone Alto Mib</h3>
+                    <a href="produto.html?sku=tsa200" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tsa300.png" alt="Saxofone Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Saxofone Alto Mib Série 300</h3>
+                    <a href="produto.html?sku=tsa300" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tsb200.png" alt="Saxofone Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Saxofone Barítono Mib</h3>
+                    <a href="produto.html?sku=tsb200" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tsb300.png" alt="Saxofone Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Saxofone Barítono Mib Série 300</h3>
+                    <a href="produto.html?sku=tsb300" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tss200.png" alt="Saxofone Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Saxofone Soprano Reto Sib</h3>
+                    <a href="produto.html?sku=tss200" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tss300.png" alt="Saxofone Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Saxofone Soprano Reto Sib Série 300</h3>
+                    <a href="produto.html?sku=tss300" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tsc200.png" alt="Saxofone Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Saxofone Soprano Curvo Sib</h3>
+                    <a href="produto.html?sku=tsc200" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tst200.png" alt="Saxofone Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Saxofone Tenor Sib</h3>
+                    <a href="produto.html?sku=tst200" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tst300.png" alt="Saxofone Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Saxofone Tenor Sib Série 300</h3>
+                    <a href="produto.html?sku=tst300" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tp200.png" alt="Trombone Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Trombone de Pisto Longo Sib</h3>
+                    <a href="produto.html?sku=tp200" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tp201.png" alt="Trombone Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Trombone de Pisto Curto Sib</h3>
+                    <a href="produto.html?sku=tp201" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tv200.png" alt="Trombone Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Trombone de Vara Sib</h3>
+                    <a href="produto.html?sku=tv200" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tr200.png" alt="Trompete Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Trompete Sib Laqueado</h3>
+                    <a href="produto.html?sku=tr200" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tr400.png" alt="Trompete Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Trompete Sib Série 400</h3>
+                    <a href="produto.html?sku=tr400" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tr401.png" alt="Trompete Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Trompete Dó Série 401</h3>
+                    <a href="produto.html?sku=tr401" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tct200.png" alt="Cornet Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Cornet Sib Laqueado</h3>
+                    <a href="produto.html?sku=tct200" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/ttp400.png" alt="Trompa Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Trompa Fa/Sib 4 Rotores</h3>
+                    <a href="produto.html?sku=ttp400" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tep400.png" alt="Eufônio Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Eufônio Bombardino 4 Pistos Sib</h3>
+                    <a href="produto.html?sku=tep400" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tep600.png" alt="Eufônio Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Eufônio Bombardino Compensado Sib</h3>
+                    <a href="produto.html?sku=tep600" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tb200.png" alt="Tuba Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Tuba Bombardão 4/4 4 Pistos Sib</h3>
+                    <a href="produto.html?sku=tb200" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tb400.png" alt="Tuba Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Tuba 5/4 4 Rotores Sib</h3>
+                    <a href="produto.html?sku=tb400" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tb402.png" alt="Tuba Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Tuba 4/4 5 Rotores Dó</h3>
+                    <a href="produto.html?sku=tb402" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tb403.png" alt="Tuba Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Tuba 4/4 3+1 Pistos Compensada Mib</h3>
+                    <a href="produto.html?sku=tb403" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tb600.png" alt="Tuba Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Tuba 5/4 4 Pistos e 1 Rotor Sib</h3>
+                    <a href="produto.html?sku=tb600" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/tb601.png" alt="Tuba Tokai"></div>
+                    <span class="categoria-tag">Sopros</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Tuba 5/4 4 Pistos Sib</h3>
+                    <a href="produto.html?sku=tb601" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- TOKAI - CORDAS ORQUESTRAIS                                   -->
+                <!-- ========================================================== -->
+                <div class="secao-titulo">Cordas Orquestrais</div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/v200.png" alt="Violino Tokai"></div>
+                    <span class="categoria-tag">Cordas</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Violino 4/4 Linden com Acabamento Envernizado</h3>
+                    <a href="produto.html?sku=v200" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/v250.png" alt="Violino Tokai"></div>
+                    <span class="categoria-tag">Cordas</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Violino 4/4 Solid Spruce</h3>
+                    <a href="produto.html?sku=v250" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/v400.png" alt="Violino Tokai"></div>
+                    <span class="categoria-tag">Cordas</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Violino 4/4 Solid Spruce Extra Luxo</h3>
+                    <a href="produto.html?sku=v400" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/v450.png" alt="Violino Tokai"></div>
+                    <span class="categoria-tag">Cordas</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Violino 4/4 Madeira Selecionada</h3>
+                    <a href="produto.html?sku=v450" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/c250.png" alt="Violoncelo Tokai"></div>
+                    <span class="categoria-tag">Cordas</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Violoncelo 4/4 Linden</h3>
+                    <a href="produto.html?sku=c250" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-marca">
+                    <div class="imagem-card"><img src="img/c400.png" alt="Violoncelo Tokai"></div>
+                    <span class="categoria-tag">Cordas</span>
+                    <p class="marca-nome">Tokai</p>
+                    <h3 class="nome-produto">Violoncelo 4/4 Solid Spruce</h3>
+                    <a href="produto.html?sku=c400" class="btn-ver">Ver Produto</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!--! FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <img src="img/logo-branca.png" alt="Sonho Meu" />
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-col">
+              <h4>Institucional</h4>
+              <ul>
+                <li><a href="#">Sobre nós</a></li>
+                <li><a href="#">Fotos</a></li>
+                <li><a href="#">Escola</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Produtos</h4>
+              <ul>
+                <li><a href="index.html#marcas-section">Marcas</a></li>
+                <li><a href="index.html#promo-grid">Categorias</a></li>
+                <li><a href="todos-produtos.html">Instrumentos</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Atendimento</h4>
+              <ul>
+                <li><a href="https://wa.me/553186421895">WhatsApp</a></li>
+                <li><a href="#">Email</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+          <span class="rights"
+            >© 2026 Sonho Meu - Instrumentos Musicais. Todos os direitos
+            reservados.</span
+          >
+          <span class="dev"
+            >Desenvolvido por
+            <a href="https://github.com/davisouza6">@davisouza6</a></span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="menu.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof updateCartBadge === 'function') updateCartBadge();
+            if (typeof renderCart === 'function') renderCart();
+        });
+    </script>
+</body>
+</html>

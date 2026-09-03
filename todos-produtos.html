@@ -1,0 +1,1325 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo Completo - Sonho Meu</title>
+    <link rel="icon" href="img/logo-simples.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="produto.css" />
+    
+    <style>
+      .catalogo-page {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 40px 32px;
+      }
+
+      .catalogo-header {
+        margin-bottom: 32px;
+        border-bottom: 2px solid var(--primary-light);
+        padding-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .catalogo-header h1 {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--primary-dark);
+      }
+
+      .catalogo-header a {
+        color: var(--primary);
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      .catalogo-header a:hover {
+        color: var(--primary-dark);
+      }
+
+      .catalogo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 24px;
+      }
+
+      .catalogo-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 20px;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+        border: 1px solid #f0f0f0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .catalogo-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary-light);
+      }
+
+      .catalogo-imagem {
+        width: 100%;
+        height: 180px;
+        background: var(--bg-light);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        overflow: hidden;
+      }
+
+      .catalogo-imagem img {
+        max-width: 80%;
+        max-height: 80%;
+        object-fit: contain;
+      }
+
+      .catalogo-tag {
+        display: inline-block;
+        background: var(--primary-light);
+        color: var(--primary-dark);
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 4px 8px;
+        border-radius: 4px;
+        margin-bottom: 12px;
+        align-self: flex-start;
+      }
+
+      .catalogo-marca {
+        font-size: 13px;
+        color: var(--text-light);
+        margin-bottom: 4px;
+      }
+
+      .catalogo-nome {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 8px;
+        line-height: 1.4;
+      }
+      
+      .btn-catalogo {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: auto;
+        padding: 10px 16px;
+        background: var(--primary);
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .btn-catalogo:hover {
+        background: var(--primary-dark);
+      }
+
+      .catalogo-secao-titulo {
+        grid-column: 1 / -1;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--primary-dark);
+        padding: 24px 0 8px;
+        border-bottom: 2px solid var(--primary-light);
+        margin-bottom: 8px;
+      }
+
+      @media (max-width: 768px) {
+        .catalogo-page {
+          padding: 20px 16px;
+        }
+        .catalogo-header h1 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--! ==================== HEADER ==================== -->
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="img/logo-colorida.jpg" alt="Sonho Meu" />
+          </a>
+        </div>
+        <nav class="nav-menu" id="navMenu">
+          <ul>
+            <li><a href="violoes.html" class="nav-link">Violões</a></li>
+            <li><a href="violinos.html" class="nav-link">Violinos</a></li>
+            <li><a href="orgaos.html" class="nav-link">Órgãos</a></li>
+            <li><a href="todos-produtos.html" class="nav-link">Instrumentos</a></li>
+            <li><a href="index.html#marcas-section" class="nav-link">Marcas</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a href="carrinho.html" class="cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+              <path fill="currentColor" d="M256 144C256 108.7 284.7 80 320 80C355.3 80 384 108.7 384 144L384 192L256 192L256 144zM208 192L144 192C117.5 192 96 213.5 96 240L96 448C96 501 139 544 192 544L448 544C501 544 544 501 544 448L544 240C544 213.5 522.5 192 496 192L432 192L432 144C432 82.1 381.9 32 320 32C258.1 32 208 82.1 208 144L208 192zM232 240C245.3 240 256 250.7 256 264C256 277.3 245.3 288 232 288C218.7 288 208 277.3 208 264C208 250.7 218.7 240 232 240zM384 264C384 250.7 394.7 240 408 240C421.3 240 432 250.7 432 264C432 277.3 421.3 288 408 288C394.7 288 384 277.3 384 264z"/>
+            </svg>
+            <span class="cart-badge">0</span>
+          </a>
+          <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-controls="navMenu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <div class="nav-overlay" id="navOverlay"></div>
+      </div>
+    </header>
+
+    <!--! ==================== CATÁLOGO ==================== -->
+    <main>
+      <section class="catalogo-page">
+        <div class="catalogo-header">
+          <h1>Catálogo Completo</h1>
+          <a href="index.html">← Voltar para Home</a>
+        </div>
+
+        <div class="catalogo-grid">
+
+          <!-- ============================================================ -->
+          <!-- TOKAI - TECLAS                                                -->
+          <!-- ============================================================ -->
+          <div class="catalogo-secao-titulo">Tokai - Teclas</div>
+
+          <!-- TOKATA -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tokata.png" alt="Órgão Tokai TOKATA" /></div>
+            <span class="catalogo-tag">Teclas</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Órgão Eletrônico TOKATA</h3>
+            <a href="produto.html?sku=tokata" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- MD-5 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/md5.png" alt="Órgão Tokai MD-5" /></div>
+            <span class="catalogo-tag">Teclas</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Órgão Eletrônico MD-5</h3>
+            <a href="produto.html?sku=md5" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- MD-10 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/md10.png" alt="Órgão Tokai MD-10" /></div>
+            <span class="catalogo-tag">Teclas</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Órgão Eletrônico MD-10</h3>
+            <a href="produto.html?sku=md10" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- MD-760B -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/md750.png" alt="Órgão Tokai MD-760B" /></div>
+            <span class="catalogo-tag">Teclas</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Órgão Eletrônico MD-750 GOLD</h3>
+            <a href="produto.html?sku=md750" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- T-1 SPINET -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/t1spinet.png" alt="Órgão Tokai T-1 SPINET" /></div>
+            <span class="catalogo-tag">Teclas</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Órgão Eletrônico T-1 SPINET</h3>
+            <a href="produto.html?sku=t1spinet" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- T-1 CONCERT -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/t1concert.png" alt="Órgão Tokai T-1 CONCERT" /></div>
+            <span class="catalogo-tag">Teclas</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Órgão Eletrônico T-1 CONCERT</h3>
+            <a href="produto.html?sku=t1concert" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TP-200C -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tp200c.png" alt="Piano Tokai TP-200C" /></div>
+            <span class="catalogo-tag">Teclas</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Piano Digital TP-200C Móvel Cauda</h3>
+            <a href="produto.html?sku=tp200c" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TP-88C -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tp88c.png" alt="Piano Tokai TP-88C" /></div>
+            <span class="catalogo-tag">Teclas</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Piano Digital TP-88C Móvel Cauda</h3>
+            <a href="produto.html?sku=tp88c" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TP-350C -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tp350c.png" alt="Piano Tokai TP-350C" /></div>
+            <span class="catalogo-tag">Teclas</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Piano Digital TP-350C Móvel Cauda</h3>
+            <a href="produto.html?sku=tp350c" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- TOKAI - SOPROS                                                -->
+          <!-- ============================================================ -->
+          <div class="catalogo-secao-titulo">Tokai - Sopros</div>
+
+          <!-- TCL-200 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tcl200.png" alt="Clarinete Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Clarinete Sib 17 Chaves Sistema Boehm</h3>
+            <a href="produto.html?sku=tcl200" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TCL-400 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tcl400.png" alt="Clarinete Tokai Ébano" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Clarinete Sib Ébano Chaves Prata</h3>
+            <a href="produto.html?sku=tcl400" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TFL-200 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tfl200.png" alt="Flauta Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Flauta Transversal Dó 16 Chaves</h3>
+            <a href="produto.html?sku=tfl200" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TFL-400 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tfl400.png" alt="Flauta Tokai Chaves Abertas" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Flauta Transversal Dó 17 Chaves Abertas</h3>
+            <a href="produto.html?sku=tfl400" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TFH-400 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tfh400.png" alt="Flugelhorn Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Flugelhorn Sib Laqueado</h3>
+            <a href="produto.html?sku=tfh400" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TSA-200 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tsa200.png" alt="Saxofone Alto Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Saxofone Alto Mib</h3>
+            <a href="produto.html?sku=tsa200" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TSA-300 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tsa300.png" alt="Saxofone Alto Tokai Série 300" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Saxofone Alto Mib Série 300</h3>
+            <a href="produto.html?sku=tsa300" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TSB-200 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tsb200.png" alt="Saxofone Barítono Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Saxofone Barítono Mib</h3>
+            <a href="produto.html?sku=tsb200" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TSB-300 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tsb300.png" alt="Saxofone Barítono Tokai Série 300" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Saxofone Barítono Mib Série 300</h3>
+            <a href="produto.html?sku=tsb300" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TSS-200 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tss200.png" alt="Saxofone Soprano Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Saxofone Soprano Reto Sib</h3>
+            <a href="produto.html?sku=tss200" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TSS-300 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tss300.png" alt="Saxofone Soprano Tokai Série 300" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Saxofone Soprano Reto Sib Série 300</h3>
+            <a href="produto.html?sku=tss300" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TSC-200 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tsc200.png" alt="Saxofone Soprano Curvo Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Saxofone Soprano Curvo Sib</h3>
+            <a href="produto.html?sku=tsc200" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TST-200 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tst200.png" alt="Saxofone Tenor Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Saxofone Tenor Sib</h3>
+            <a href="produto.html?sku=tst200" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TST-300 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tst300.png" alt="Saxofone Tenor Tokai Série 300" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Saxofone Tenor Sib Série 300</h3>
+            <a href="produto.html?sku=tst300" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TP-200 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tp200.png" alt="Trombone Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Trombone de Pisto Longo Sib</h3>
+            <a href="produto.html?sku=tp200" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TP-201 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tp201.png" alt="Trombone Curto Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Trombone de Pisto Curto Sib</h3>
+            <a href="produto.html?sku=tp201" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TV-200 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tv200.png" alt="Trombone Vara Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Trombone de Vara Sib</h3>
+            <a href="produto.html?sku=tv200" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TR-200 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tr200.png" alt="Trompete Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Trompete Sib Laqueado</h3>
+            <a href="produto.html?sku=tr200" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TR-400 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tr400.png" alt="Trompete Tokai Série 400" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Trompete Sib Série 400</h3>
+            <a href="produto.html?sku=tr400" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TR-401 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tr401.png" alt="Trompete Dó Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Trompete Dó Série 401</h3>
+            <a href="produto.html?sku=tr401" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TCT-200 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tct200.png" alt="Cornet Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Cornet Sib Laqueado</h3>
+            <a href="produto.html?sku=tct200" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TTP-400 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/ttp400.png" alt="Trompa Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Trompa Fa/Sib 4 Rotores</h3>
+            <a href="produto.html?sku=ttp400" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TEP-400 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tep400.png" alt="Eufônio Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Eufônio Bombardino 4 Pistos Sib</h3>
+            <a href="produto.html?sku=tep400" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TEP-600 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tep600.png" alt="Eufônio Compensado Tokai" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Eufônio Bombardino Compensado Sib</h3>
+            <a href="produto.html?sku=tep600" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TB-200 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tb200.png" alt="Tuba Tokai 4/4" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Tuba Bombardão 4/4 4 Pistos Sib</h3>
+            <a href="produto.html?sku=tb200" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TB-400 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tb400.png" alt="Tuba Tokai 5/4 Rotores" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Tuba 5/4 4 Rotores Sib</h3>
+            <a href="produto.html?sku=tb400" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TB-402 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tb402.png" alt="Tuba Tokai 5 Rotores Dó" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Tuba 4/4 5 Rotores Dó</h3>
+            <a href="produto.html?sku=tb402" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TB-403 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tb403.png" alt="Tuba Tokai Compensada Mib" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Tuba 4/4 3+1 Pistos Compensada Mib</h3>
+            <a href="produto.html?sku=tb403" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TB-600 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tb600.png" alt="Tuba Tokai 4+1" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Tuba 5/4 4 Pistos e 1 Rotor Sib</h3>
+            <a href="produto.html?sku=tb600" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- TB-601 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/tb601.png" alt="Tuba Tokai 4 Pistos" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Tuba 5/4 4 Pistos Sib</h3>
+            <a href="produto.html?sku=tb601" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- TOKAI - CORDAS ORQUESTRAIS                                     -->
+          <!-- ============================================================ -->
+          <div class="catalogo-secao-titulo">Tokai - Cordas Orquestrais</div>
+
+          <!-- V-200 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/v200.png" alt="Violino Tokai Linden" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Violino 4/4 Linden com Acabamento Envernizado</h3>
+            <a href="produto.html?sku=v200" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- V-250 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/v250.png" alt="Violino Tokai Solid Spruce" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Violino 4/4 Solid Spruce</h3>
+            <a href="produto.html?sku=v250" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- V-400 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/v400.png" alt="Violino Tokai Extra Luxo" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Violino 4/4 Solid Spruce Extra Luxo</h3>
+            <a href="produto.html?sku=v400" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- V-450 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/v450.png" alt="Violino Tokai Madeira Selecionada" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Violino 4/4 Madeira Selecionada</h3>
+            <a href="produto.html?sku=v450" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- C-250 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/c250.png" alt="Violoncelo Tokai Linden" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Violoncelo 4/4 Linden</h3>
+            <a href="produto.html?sku=c250" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- C-400 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/c400.png" alt="Violoncelo Tokai Solid Spruce" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Tokai</p>
+            <h3 class="catalogo-nome">Violoncelo 4/4 Solid Spruce</h3>
+            <a href="produto.html?sku=c400" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- MICHAEL - CORDAS DEDILHADAS                                   -->
+          <!-- ============================================================ -->
+          <div class="catalogo-secao-titulo">Michael - Cordas Dedilhadas</div>
+
+          <!-- VMI230 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vmi230.png" alt="Violão Michael Imperial" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violão Folk com Cutaway Imperial</h3>
+            <a href="produto.html?sku=vmi230" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VMI240 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vmi240.png" alt="Violão Michael OM" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violão OM Imperial</h3>
+            <a href="produto.html?sku=vmi240" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VMI280 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vmi280.png" alt="Violão Michael Clássico" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violão Clássico Imperial</h3>
+            <a href="produto.html?sku=vmi280" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VMI380 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vmi380.png" alt="Violão Michael Sitka" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violão Sitka Imperial</h3>
+            <a href="produto.html?sku=vmi380" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VMR250 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vmr250.png" alt="Violão Michael Renascence" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violão Clássico Renascence</h3>
+            <a href="produto.html?sku=vmr250" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VME610 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vme610.png" alt="Violão Michael Enigma" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violão Mini GS Enigma</h3>
+            <a href="produto.html?sku=vme610" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VME620 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vme620.png" alt="Violão Michael Mini Jumbo" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violão Mini Jumbo Enigma</h3>
+            <a href="produto.html?sku=vme620" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VME630 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vme630.png" alt="Violão Michael Enigma 630" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violão Folk Enigma Série 630</h3>
+            <a href="produto.html?sku=vme630" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VMV570 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vmv570.png" alt="Violão Michael Venice" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violão Parlor Venice</h3>
+            <a href="produto.html?sku=vmv570" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- GMV200 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/gmv200.png" alt="Guitarra Michael Vangart" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Guitarra ST Vangart</h3>
+            <a href="produto.html?sku=gmv200" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- GMS130 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/gms130.png" alt="Guitarra Michael Mysticone" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Guitarra ST Mysticone</h3>
+            <a href="produto.html?sku=gms130" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- GMS100 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/gms100.png" alt="Guitarra Michael Mysticone Short" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Guitarra ST Mysticone Short Scale</h3>
+            <a href="produto.html?sku=gms100" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- GMT142 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/gmt142.png" alt="Guitarra Michael Retrosoul" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Guitarra TL Retrosoul</h3>
+            <a href="produto.html?sku=gmt142" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- GMT132 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/gmt132.png" alt="Guitarra Michael Retrosoul 132" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Guitarra TL Retrosoul 132</h3>
+            <a href="produto.html?sku=gmt132" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- MK27 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/mk27.png" alt="Ukulele Michael" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Ukulele Tenor Zibra Wood</h3>
+            <a href="produto.html?sku=mk27" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- MK23 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/mk23.png" alt="Ukulele Michael Concert" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Ukulele Concert Mahogany</h3>
+            <a href="produto.html?sku=mk23" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- MK21 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/mk21.png" alt="Ukulele Michael Soprano" /></div>
+            <span class="catalogo-tag">Cordas Dedilhadas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Ukulele Soprano Zibra Wood</h3>
+            <a href="produto.html?sku=mk21" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- MICHAEL - CORDAS ORQUESTRAIS                                   -->
+          <!-- ============================================================ -->
+          <div class="catalogo-secao-titulo">Michael - Cordas Orquestrais</div>
+
+          <!-- VNM49 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vnm49.png" alt="Violino Michael" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violino 4/4 Ébano Series</h3>
+            <a href="produto.html?sku=vnm49" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VNM40 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vnm40.png" alt="Violino Michael" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violino 4/4 Tradicional Series</h3>
+            <a href="produto.html?sku=vnm40" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VNM130 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vnm130.png" alt="Violino Michael" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violino 3/4 Ébano Series</h3>
+            <a href="produto.html?sku=vnm130" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VNM11 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vnm11.png" alt="Violino Michael" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violino 1/2 Tradicional Series</h3>
+            <a href="produto.html?sku=vnm11" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VNM10 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vnm10.png" alt="Violino Michael" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violino 1/4 Tradicional Series</h3>
+            <a href="produto.html?sku=vnm10" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VNM08 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vnm08.png" alt="Violino Michael" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violino 1/8 Tradicional Series</h3>
+            <a href="produto.html?sku=vnm08" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VCM140 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vcm140.png" alt="Violoncelo Michael" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violoncelo 4/4 Ébano Series</h3>
+            <a href="produto.html?sku=vcm140" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VCM130 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vcm130.png" alt="Violoncelo Michael" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Violoncelo 3/4 Ébano Series</h3>
+            <a href="produto.html?sku=vcm130" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VBM140 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vbm140.png" alt="Contrabaixo Michael" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Contrabaixo Acústico 4/4 Ébano Series</h3>
+            <a href="produto.html?sku=vbm140" class="btn-catalogo">Ver Produto</a>
+          </div>  
+
+          <!-- VBM130 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vbm130.png" alt="Contrabaixo Michael" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Contrabaixo Acústico 3/4 Ébano Series</h3>
+            <a href="produto.html?sku=vbm130" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- MICHAEL - SOPROS                                               -->
+          <!-- ============================================================ -->
+          <div class="catalogo-secao-titulo">Michael - Sopros</div>
+
+          <!-- WTPM35N -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wtpm35n.png" alt="Trombone Michael" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Trombone de Pisto Sib</h3>
+            <a href="produto.html?sku=wtpm35n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WTRM30N -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wtrm30n.png" alt="Trompete Michael" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Trompete Sib Laqueado</h3>
+            <a href="produto.html?sku=wtrm30n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WPKM35N -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wpkm35n.png" alt="Trompete Pocket Michael" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Trompete Pocket Sib</h3>
+            <a href="produto.html?sku=wpkm35n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WTRPM40 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wtrpm40.png" alt="Trompete Piccolo Michael" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Trompete Piccolo Sib/Lá</h3>
+            <a href="produto.html?sku=wtrpm40" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WCORM45N -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wcorm45n.png" alt="Cornet Michael" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Cornet Sib Laqueado</h3>
+            <a href="produto.html?sku=wcorm45n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WFLM34N -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wflm34n.png" alt="Flauta Michael" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Flauta Transversal Dó</h3>
+            <a href="produto.html?sku=wflm34n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WFLM33N -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wflm33n.png" alt="Flauta Michael Bocal Curvo" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Flauta Transversal Dó com Bocal Curvo</h3>
+            <a href="produto.html?sku=wflm33n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WCLM52 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wclm52.png" alt="Clarinete Michael" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Clarinete Sib 18 Chaves</h3>
+            <a href="produto.html?sku=wclm52" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WCLM51 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wclm51.png" alt="Clarinete Michael Niquelado" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Clarinete Sib 18 Chaves Niquelado</h3>
+            <a href="produto.html?sku=wclm51" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WREM35N -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wrem35n.png" alt="Requinta Michael" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Requinta Mib</h3>
+            <a href="produto.html?sku=wrem35n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WSBM35N -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wsbm35n.png" alt="Saxofone Barítono Michael" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Saxofone Barítono Mib</h3>
+            <a href="produto.html?sku=wsbm35n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WTSM30N -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wtsm30n.png" alt="Saxofone Tenor Michael" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Saxofone Tenor Sib</h3>
+            <a href="produto.html?sku=wtsm30n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WASM31N -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wasm31n.png" alt="Saxofone Alto Michael" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Saxofone Alto Mib</h3>
+            <a href="produto.html?sku=wasm31n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WHRM46N -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/whrm46n.png" alt="Trompa Marcha Michael" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Trompa de Marcha</h3>
+            <a href="produto.html?sku=whrm46n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WHRM45N -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/whrm45n.png" alt="Trompa Dupla Michael" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Trompa Dupla Fa/Sib</h3>
+            <a href="produto.html?sku=whrm45n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WEPM454N -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wepm454n.png" alt="Bombardino Michael 4 Pistos" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Bombardino 4 Pistos Sib</h3>
+            <a href="produto.html?sku=wepm454n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WEPM45N -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wepm45n.png" alt="Bombardino Michael 3 Pistos" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Bombardino 3 Pistos Sib</h3>
+            <a href="produto.html?sku=wepm45n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- WBBM40N -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/wbbm40n.png" alt="Tuba Michael 3/4" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Michael</p>
+            <h3 class="catalogo-nome">Tuba 3/4 3 Pistos Sib</h3>
+            <a href="produto.html?sku=wbbm40n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- VOGGA - SOPROS                                                 -->
+          <!-- ============================================================ -->
+          <div class="catalogo-secao-titulo">Vogga - Sopros</div>
+
+          <!-- VSCL701N - Clarinete Niquelado -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vscl701n.png" alt="Clarinete Vogga Niquelado" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Clarinete Sib 17 Chaves Niquelado</h3>
+            <a href="produto.html?sku=vscl701n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VSCL702N - Clarinete Prateado -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vscl702n.png" alt="Clarinete Vogga Prateado" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Clarinete Sib 17 Chaves Prateado</h3>
+            <a href="produto.html?sku=vscl702n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VSFL701N - Flauta Niquelada -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vsfl701n.png" alt="Flauta Vogga Niquelada" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Flauta Transversal Dó 16 Chaves Niquelada</h3>
+            <a href="produto.html?sku=vsfl701n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VSFL702N - Flauta Prateada -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vsfl702n.png" alt="Flauta Vogga Prateada" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Flauta Transversal Dó 16 Chaves Prateada</h3>
+            <a href="produto.html?sku=vsfl702n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VSAS701N - Saxofone Alto -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vsas701n.png" alt="Saxofone Alto Vogga" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Saxofone Alto Mib</h3>
+            <a href="produto.html?sku=vsas701n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VSSP701N - Saxofone Soprano -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vssp701n.png" alt="Saxofone Soprano Vogga" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Saxofone Soprano Sib</h3>
+            <a href="produto.html?sku=vssp701n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VSTS701N - Saxofone Tenor -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vsts701n.png" alt="Saxofone Tenor Vogga" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Saxofone Tenor Sib</h3>
+            <a href="produto.html?sku=vsts701n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VSTR701N - Trompete -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vstr701n.png" alt="Trompete Vogga" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Trompete Sib Laqueado</h3>
+            <a href="produto.html?sku=vstr701n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VSTB701N - Trombone de Vara -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vstb701n.png" alt="Trombone de Vara Vogga" /></div>
+            <span class="catalogo-tag">Sopros</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Trombone de Vara Sib</h3>
+            <a href="produto.html?sku=vstb701n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- VOGGA - CORDAS ORQUESTRAIS                                     -->
+          <!-- ============================================================ -->
+          <div class="catalogo-secao-titulo">Vogga - Cordas Orquestrais</div>
+
+          <!-- VON118N - Violino 1/8 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/von118n.png" alt="Violino Vogga 1/8" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Violino 1/8 Vintage Fosco</h3>
+            <a href="produto.html?sku=von118n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VON114N - Violino 1/4 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/von114n.png" alt="Violino Vogga 1/4" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Violino 1/4 Vintage Fosco</h3>
+            <a href="produto.html?sku=von114n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VON112N - Violino 1/2 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/von112n.png" alt="Violino Vogga 1/2" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Violino 1/2 Vintage Fosco</h3>
+            <a href="produto.html?sku=von112n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VON134N - Violino 3/4 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/von134n.png" alt="Violino Vogga 3/4" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Violino 3/4 Vintage Fosco</h3>
+            <a href="produto.html?sku=von134n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VON144N - Violino 4/4 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/von144n.png" alt="Violino Vogga 4/4" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Violino 4/4 Vintage Fosco</h3>
+            <a href="produto.html?sku=von144n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VOL134N - Viola 3/4 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vol134n.png" alt="Viola Vogga 3/4" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Viola 3/4 Vintage Fosco</h3>
+            <a href="produto.html?sku=vol134n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VOL144N - Viola 4/4 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vol144n.png" alt="Viola Vogga 4/4" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Viola 4/4 Vintage Fosco</h3>
+            <a href="produto.html?sku=vol144n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VOC118N - Violoncelo 1/8 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/voc118n.png" alt="Violoncelo Vogga 1/8" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Violoncelo 1/8 Vintage Fosco</h3>
+            <a href="produto.html?sku=voc118n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VOC114N - Violoncelo 1/4 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/voc114n.png" alt="Violoncelo Vogga 1/4" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Violoncelo 1/4 Vintage Fosco</h3>
+            <a href="produto.html?sku=voc114n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VOC112N - Violoncelo 1/2 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/voc112n.png" alt="Violoncelo Vogga 1/2" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Violoncelo 1/2 Vintage Fosco</h3>
+            <a href="produto.html?sku=voc112n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VOC134N - Violoncelo 3/4 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/voc134n.png" alt="Violoncelo Vogga 3/4" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Violoncelo 3/4 Vintage Fosco</h3>
+            <a href="produto.html?sku=voc134n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VOC144N - Violoncelo 4/4 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/voc144n.png" alt="Violoncelo Vogga 4/4" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Violoncelo 4/4 Vintage Fosco</h3>
+            <a href="produto.html?sku=voc144n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VBA112N - Contrabaixo 1/2 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vba112n.png" alt="Contrabaixo Vogga 1/2" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Contrabaixo Acústico 1/2 Vintage Fosco</h3>
+            <a href="produto.html?sku=vba112n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VBA134N - Contrabaixo 3/4 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vba134n.png" alt="Contrabaixo Vogga 3/4" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Contrabaixo Acústico 3/4 Vintage Fosco</h3>
+            <a href="produto.html?sku=vba134n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+          <!-- VBA144N - Contrabaixo 4/4 -->
+          <div class="catalogo-card">
+            <div class="catalogo-imagem"><img src="img/vba144n.png" alt="Contrabaixo Vogga 4/4" /></div>
+            <span class="catalogo-tag">Cordas</span>
+            <p class="catalogo-marca">Vogga</p>
+            <h3 class="catalogo-nome">Contrabaixo Acústico 4/4 Vintage Fosco</h3>
+            <a href="produto.html?sku=vba144n" class="btn-catalogo">Ver Produto</a>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!--! ==================== FOOTER ==================== -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <img src="img/logo-branca.png" alt="Sonho Meu" />
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-col">
+              <h4>Institucional</h4>
+              <ul>
+                <li><a href="#">Sobre nós</a></li>
+                <li><a href="#">Fotos</a></li>
+                <li><a href="#">Escola</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Produtos</h4>
+              <ul>
+                <li><a href="index.html#marcas-section">Marcas</a></li>
+                <li><a href="index.html#promo-grid">Categorias</a></li>
+                <li><a href="todos-produtos.html">Instrumentos</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Atendimento</h4>
+              <ul>
+                <li><a href="https://wa.me/553186421895">WhatsApp</a></li>
+                <li><a href="#">Email</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+          <span class="rights"
+            >© 2026 Sonho Meu - Instrumentos Musicais. Todos os direitos
+            reservados.</span
+          >
+          <span class="dev"
+            >Desenvolvido por
+            <a href="https://github.com/davisouza6">@davisouza6</a></span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="menu.js"></script>
+    <script src="cart.js"></script>
+  </body>
+</html>

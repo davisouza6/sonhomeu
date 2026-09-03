@@ -1,0 +1,503 @@
+html{
+  transition: 2s;
+  scroll-behavior: smooth;
+}
+
+/*! ==================== HEADER MOBILE / MENU HAMBURGUER ====================
+   Obs: o header aparece em todas as páginas do site (não só na home).
+   O ideal é mover este bloco para o produto.css (o CSS "base" compartilhado)
+   assim que puder, para não ter que colar em cada página. Por enquanto
+   funciona normalmente, só vale nas páginas que carregam este style.css. */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text-dark, #222);
+  border-radius: 2px;
+  transition: var(--transition, 0.3s);
+}
+
+/* transforma em "X" quando o menu está aberto */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-overlay {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(78vw, 320px);
+    background: var(--white, #fff);
+    box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+    padding: 96px 32px 32px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  .nav-menu.active {
+    transform: translateX(0);
+  }
+
+  .nav-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-menu .nav-link {
+    display: block;
+    padding: 14px 8px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-dark, #222);
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .header-container {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+/*! ==================== HOME - HERO ==================== */
+.hero-section {
+  max-width: 1280px;
+  margin: 20px auto 0;
+  padding: 0 32px;
+}
+
+.hero-banner {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.hero-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*! ==================== TÍTULOS DE SEÇÃO CENTRALIZADOS ==================== */
+.section-heading-center {
+  max-width: 1280px;
+  margin: 64px auto 32px;
+  padding: 0 32px;
+  text-align: center;
+}
+
+.section-heading-center h2 {
+  display: inline-block;
+  position: relative;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary);
+  padding-bottom: 12px;
+}
+
+.section-heading-center h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 3px;
+  background: var(--secondary);
+  border-radius: 2px;
+}
+
+/* Reaproveita .related-products / .related-grid / .related-card do produto.css
+   para os grids de produtos "Mais Vendidos" e "Produtos Relevantes" */
+.mais-vendidos {
+  margin-top: 0;
+}
+main {
+  padding: 0;
+}
+/*! ==================== MARCAS PARCEIRAS ==================== */
+#marcas-section {
+  background: var(--primary);
+  padding: 56px 0;
+  margin-top: 64px;
+}
+
+.marcas-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.marcas-container h2 {
+  color: var(--white);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.marcas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.marca-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.marca-card:hover {
+  transform: scale(1.01);
+  transition: 0.3s;
+  box-shadow: 0px 2px 10px 10px rgba(0, 0, 0, 0.048);
+}
+
+.marca-card .marca-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.marca-card .marca-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.marca-card .marca-logo {
+  max-width: 65%;
+  max-height: 45%;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+/*! ==================== BANNERS PROMOCIONAIS ==================== */
+.promo-banners {
+  max-width: 1280px;
+  margin: 64px auto 0;
+  padding: 0 32px;/*! ==================== ESPECIFICAÇÕES TÉCNICAS ==================== */
+.specs-section {
+  max-width: 1280px;
+  margin: 48px auto 0;
+  padding: 0 32px;
+  width: 100%;
+}
+
+.specs-container {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 40px 48px;
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+}
+
+.specs-header {
+  margin-bottom: 32px;
+}
+
+.specs-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-dark);
+  position: relative;
+  display: inline-block;
+}
+
+.specs-header h2::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.specs-subtitle {
+  font-size: 15px;
+  color: var(--text-gray);
+  margin-top: 12px;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.specs-card {
+  background: var(--bg-light);
+  border-radius: var(--radius-sm);
+  padding: 24px 28px;
+  transition: var(--transition);
+  border: 1px solid #f0f0f0;
+}
+
+.specs-card:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.specs-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--primary-light);
+}
+
+.specs-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.specs-card-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin: 0;
+}
+
+.specs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.specs-list li {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  padding: 4px 0;
+  border-bottom: 1px dashed #f0f0f0;
+}
+
+.specs-list li:last-child {
+  border-bottom: none;
+}
+
+.specs-label {
+  font-weight: 600;
+  color: var(--text-dark);
+  min-width: 140px;
+  flex-shrink: 0;
+}
+
+/*! ==================== RESPONSIVO ESPECIFICAÇÕES ==================== */
+@media (max-width: 1024px) {
+  .specs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .specs-container {
+    padding: 32px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .specs-section {
+    padding: 0 16px;
+    margin-top: 32px;
+  }
+
+  .specs-container {
+    padding: 24px 20px;
+    border-radius: var(--radius-sm);
+  }
+
+  .specs-header h2 {
+    font-size: 22px;
+  }
+
+  .specs-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .specs-card {
+    padding: 20px 24px;
+  }
+
+  .specs-label {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .specs-section {
+    padding: 0 12px;
+    margin-top: 24px;
+  }
+
+  .specs-container {
+    padding: 16px;
+  }
+
+  .specs-header h2 {
+    font-size: 20px;
+  }
+
+  .specs-card {
+    padding: 16px 18px;
+  }
+
+  .specs-label {
+    min-width: 100px;
+    font-size: 13px;
+  }
+
+  .specs-list li {
+    font-size: 13px;
+  }
+}
+}
+
+#promo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.promo-card {
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.promo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.promo-card img {
+  width: 100%;
+  display: block;
+}
+
+/*! ==================== RESPONSIVO ==================== */
+@media (max-width: 1024px) {
+  .marcas-grid,
+  .promo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 0 16px;
+  }
+
+  .section-heading-center {
+    padding: 0 16px;
+    margin: 40px auto 24px;
+  }
+
+  .section-heading-center h2 {
+    font-size: 22px;
+  }
+
+  .marcas-section {
+    padding: 40px 0;
+    margin-top: 40px;
+  }
+
+  .marcas-container {
+    padding: 0 16px;
+  }
+
+  .promo-banners {
+    padding: 0 16px;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .marcas-grid,
+  .promo-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violões - Sonho Meu</title>
+    <link rel="icon" href="img/logo-simples.png" type="image/x-icon">
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Base -->
+    <link rel="stylesheet" href="produto.css">
+
+    <style>
+        .pagina-categoria {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 40px 32px;
+        }
+
+        .header-pagina {
+            margin-bottom: 32px;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .header-pagina h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .header-pagina a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .header-pagina a:hover {
+            color: var(--primary-dark);
+        }
+
+        .grid-categoria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .card-categoria {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-categoria:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .imagem-card {
+            width: 100%;
+            height: 180px;
+            background: var(--bg-light);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .imagem-card img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .marca-tag {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            align-self: flex-start;
+        }
+
+        .marca-nome {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .nome-produto {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .btn-ver {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: auto;
+            padding: 10px 16px;
+            background: var(--primary);
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-ver:hover {
+            background: var(--primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .pagina-categoria {
+                padding: 20px 16px;
+            }
+            .header-pagina h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!--! HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="img/logo-colorida.jpg" alt="Sonho Meu"></a>
+            </div>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="violoes.html" class="nav-link">Violões</a></li>
+                    <li><a href="violinos.html" class="nav-link">Violinos</a></li>
+                    <li><a href="orgaos.html" class="nav-link">Órgãos</a></li>
+                    <li><a href="todos-produtos.html" class="nav-link">Instrumentos</a></li>
+                    <li><a href="index.html#marcas-section" class="nav-link">Marcas</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="carrinho.html" class="cart-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <path fill="currentColor" d="M256 144C256 108.7 284.7 80 320 80C355.3 80 384 108.7 384 144L384 192L256 192L256 144zM208 192L144 192C117.5 192 96 213.5 96 240L96 448C96 501 139 544 192 544L448 544C501 544 544 501 544 448L544 240C544 213.5 522.5 192 496 192L432 192L432 144C432 82.1 381.9 32 320 32C258.1 32 208 82.1 208 144L208 192zM232 240C245.3 240 256 250.7 256 264C256 277.3 245.3 288 232 288C218.7 288 208 277.3 208 264C208 250.7 218.7 240 232 240zM384 264C384 250.7 394.7 240 408 240C421.3 240 432 250.7 432 264C432 277.3 421.3 288 408 288C394.7 288 384 277.3 384 264z"/>
+                    </svg>
+                    <span class="cart-badge">0</span>
+                </a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-controls="navMenu" aria-expanded="false">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </button>
+            </div>
+
+            <div class="nav-overlay" id="navOverlay"></div>
+        </div>
+    </header>
+
+    <!--! CONTEÚDO PRINCIPAL -->
+    <main>
+        <section class="pagina-categoria">
+            <div class="header-pagina">
+                <h1>Todos os Violões</h1>
+                <a href="index.html">← Voltar para Home</a>
+            </div>
+
+            <div class="grid-categoria">
+
+                <!-- ========================================================== -->
+                <!-- MICHAEL - CORDAS DEDILHADAS                                   -->
+                <!-- ========================================================== -->
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/vmi230.png" alt="Violão Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Violão Folk com Cutaway Imperial</h3>
+                    <a href="produto.html?sku=vmi230" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/vmi240.png" alt="Violão Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Violão OM Imperial</h3>
+                    <a href="produto.html?sku=vmi240" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/vmi280.png" alt="Violão Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Violão Clássico Imperial</h3>
+                    <a href="produto.html?sku=vmi280" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/vmi380.png" alt="Violão Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Violão Sitka Imperial</h3>
+                    <a href="produto.html?sku=vmi380" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/vmr250.png" alt="Violão Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Violão Clássico Renascence</h3>
+                    <a href="produto.html?sku=vmr250" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/vme610.png" alt="Violão Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Violão Mini GS Enigma</h3>
+                    <a href="produto.html?sku=vme610" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/vme620.png" alt="Violão Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Violão Mini Jumbo Enigma</h3>
+                    <a href="produto.html?sku=vme620" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/vme630.png" alt="Violão Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Violão Folk Enigma Série 630</h3>
+                    <a href="produto.html?sku=vme630" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/vmv570.png" alt="Violão Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Violão Parlor Venice</h3>
+                    <a href="produto.html?sku=vmv570" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/gmv200.png" alt="Guitarra Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Guitarra ST Vangart</h3>
+                    <a href="produto.html?sku=gmv200" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/gms130.png" alt="Guitarra Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Guitarra ST Mysticone</h3>
+                    <a href="produto.html?sku=gms130" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/gms100.png" alt="Guitarra Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Guitarra ST Mysticone Short Scale</h3>
+                    <a href="produto.html?sku=gms100" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/gmt142.png" alt="Guitarra Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Guitarra TL Retrosoul</h3>
+                    <a href="produto.html?sku=gmt142" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/gmt132.png" alt="Guitarra Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Guitarra TL Retrosoul 132</h3>
+                    <a href="produto.html?sku=gmt132" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/mk27.png" alt="Ukulele Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Ukulele Tenor Zibra Wood</h3>
+                    <a href="produto.html?sku=mk27" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/mk23.png" alt="Ukulele Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Ukulele Concert Mahogany</h3>
+                    <a href="produto.html?sku=mk23" class="btn-ver">Ver Produto</a>
+                </div>
+
+                <div class="card-categoria">
+                    <div class="imagem-card"><img src="img/mk21.png" alt="Ukulele Michael"></div>
+                    <span class="marca-tag">Cordas Dedilhadas</span>
+                    <p class="marca-nome">Michael</p>
+                    <h3 class="nome-produto">Ukulele Soprano Zibra Wood</h3>
+                    <a href="produto.html?sku=mk21" class="btn-ver">Ver Produto</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!--! FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <img src="img/logo-branca.png" alt="Sonho Meu" />
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-col">
+              <h4>Institucional</h4>
+              <ul>
+                <li><a href="#">Sobre nós</a></li>
+                <li><a href="#">Fotos</a></li>
+                <li><a href="#">Escola</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Produtos</h4>
+              <ul>
+                <li><a href="index.html#marcas-section">Marcas</a></li>
+                <li><a href="index.html#promo-grid">Categorias</a></li>
+                <li><a href="todos-produtos.html">Instrumentos</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Atendimento</h4>
+              <ul>
+                <li><a href="https://wa.me/553186421895">WhatsApp</a></li>
+                <li><a href="#">Email</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+          <span class="rights"
+            >© 2026 Sonho Meu - Instrumentos Musicais. Todos os direitos
+            reservados.</span
+          >
+          <span class="dev"
+            >Desenvolvido por
+            <a href="https://github.com/davisouza6">@davisouza6</a></span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="menu.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof updateCartBadge === 'function') updateCartBadge();
+            if (typeof renderCart === 'function') renderCart();
+        });
+    </script>
+</body>
+</html>

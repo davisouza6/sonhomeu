@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sonho Meu - Instrumentos Musicais</title>
+    <link rel="icon" href="img/logo-simples.png" type="image/x-icon">
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS do site base -->
+    <link rel="stylesheet" href="produto.css" />
+
+    <!-- CSS específico da página inicial -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--! ==================== HEADER ==================== -->
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="img/logo-colorida.jpg" alt="Sonho Meu" />
+          </a>
+        </div>
+
+        <nav class="nav-menu" id="navMenu">
+          <ul>
+            <li><a href="violoes.html" class="nav-link">Violões</a></li>
+            <li><a href="violinos.html" class="nav-link">Violinos</a></li>
+            <li><a href="orgaos.html" class="nav-link">Órgãos</a></li>
+            <li><a href="todos-produtos.html" class="nav-link">Instrumentos</a></li>
+            <li><a href="index.html#marcas-section" class="nav-link">Marcas</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a href="carrinho.html" class="cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+              <path
+                fill="currentColor"
+                d="M256 144C256 108.7 284.7 80 320 80C355.3 80 384 108.7 384 144L384 192L256 192L256 144zM208 192L144 192C117.5 192 96 213.5 96 240L96 448C96 501 139 544 192 544L448 544C501 544 544 501 544 448L544 240C544 213.5 522.5 192 496 192L432 192L432 144C432 82.1 381.9 32 320 32C258.1 32 208 82.1 208 144L208 192zM232 240C245.3 240 256 250.7 256 264C256 277.3 245.3 288 232 288C218.7 288 208 277.3 208 264C208 250.7 218.7 240 232 240zM384 264C384 250.7 394.7 240 408 240C421.3 240 432 250.7 432 264C432 277.3 421.3 288 408 288C394.7 288 384 277.3 384 264z"
+              />
+            </svg>
+            <span class="cart-badge">0</span>
+          </a>
+          <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-controls="navMenu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <div class="nav-overlay" id="navOverlay"></div>
+      </div>
+    </header>
+
+    <!--! ==================== MAIN ==================== -->
+    <main>
+      <!--! ==================== HERO ==================== -->
+      <section class="hero-section">
+        <a href="#" class="hero-banner">
+          <img
+            src="img/hero-espaco.png"
+            alt="Conheça nosso Espaço Multidisciplinar - Sonho Meu Instrumentos Musicais, Musicaterapia e Recreação Terapêutica"
+          />
+        </a>
+      </section>
+
+      <!--! ==================== MAIS VENDIDOS ==================== -->
+      <section class="related-products mais-vendidos">
+        <div class="section-heading-center">
+          <h2>Mais Vendidos</h2>
+        </div>
+
+        <div class="related-grid">
+          <!-- Produto 1: Órgão MD10 -->
+          <div class="related-card">
+            <div class="related-image">
+              <img src="img/md10.png" alt="Órgão Tokai MD10" />
+            </div>
+            <div class="related-info">
+              <h3>Órgão Tokai MD10</h3>
+              <p class="related-brand">Tokai</p>
+              <div class="related-price">À combinar</div>
+              <a href="produto.html?sku=md10" class="related-link">Saiba mais →</a>
+            </div>
+          </div>
+
+          <!-- Produto 2: Piano TP-88C -->
+          <div class="related-card">
+            <div class="related-image">
+              <img src="img/tp88c.png" alt="Piano Tokai TP-88C" />
+            </div>
+            <div class="related-info">
+              <h3>Piano Tokai TP-88C</h3>
+              <p class="related-brand">Tokai</p>
+              <div class="related-price">À combinar</div>
+              <a href="produto.html?sku=tp88c" class="related-link">Saiba mais →</a>
+            </div>
+          </div>
+
+          <!-- Produto 3: Violão Folk Imperial -->
+          <div class="related-card">
+            <div class="related-image">
+              <img src="img/vmi230.png" alt="Violão Michael Imperial" />
+            </div>
+            <div class="related-info">
+              <h3>Violão Folk Imperial</h3>
+              <p class="related-brand">Michael</p>
+              <div class="related-price">À combinar</div>
+              <a href="produto.html?sku=vmi230" class="related-link">Saiba mais →</a>
+            </div>
+          </div>
+
+          <!-- Produto 4: Clarinete Vogga -->
+          <div class="related-card">
+            <div class="related-image">
+              <img src="img/vscl701n.png" alt="Clarinete Vogga Niquelado" />
+            </div>
+            <div class="related-info">
+              <h3>Clarinete Sib 17 Chaves</h3>
+              <p class="related-brand">Vogga</p>
+              <div class="related-price">À combinar</div>
+              <a href="produto.html?sku=vscl701n" class="related-link">Saiba mais →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--! ==================== BOTÃO CATÁLOGO COMPLETO ==================== -->
+      <section class="catalogo-botao-section" style="text-align: center; margin: 40px 0;">
+        <a href="todos-produtos.html" class="btn btn-primary" style="display: inline-flex; padding: 16px 48px; font-size: 16px;">
+          Ver Catálogo Completo
+        </a>
+      </section>
+
+      <!--! ==================== MARCAS PARCEIRAS ==================== -->
+      <section id="marcas-section">
+        <div class="marcas-container">
+          <h2>Marcas Parceiras</h2>
+
+          <div class="marcas-grid">
+            <a href="michael.html" class="marca-card">
+              <img
+                src="img/marca-michael-bg.png"
+                alt="Michael"
+                class="marca-bg"
+              />
+              <div class="marca-overlay">
+                <img
+                  src="img/marca-michael-logo.png"
+                  alt="Michael"
+                  class="marca-logo"
+                />
+              </div>
+            </a>
+
+            <a href="vogga.html" class="marca-card">
+              <img src="img/marca-vogga-bg.png" alt="Vogga" class="marca-bg" />
+              <div class="marca-overlay">
+                <img
+                  src="img/marca-vogga-logo.png"
+                  alt="Vogga"
+                  class="marca-logo"
+                />
+              </div>
+            </a>
+
+            <a href="tokai.html" class="marca-card">
+              <img src="img/marca-tokai-bg.png" alt="Tokai" class="marca-bg" />
+              <div class="marca-overlay">
+                <img
+                  src="img/marca-tokai-logo.png"
+                  alt="Tokai"
+                  class="marca-logo"
+                />
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!--! ==================== PRODUTOS RELEVANTES ==================== -->
+      <section class="related-products">
+        <div class="related-header">
+          <h2>Produtos Relevantes</h2>
+          <a href="todos-produtos.html" class="view-all">Ver todos →</a>
+        </div>
+
+        <div class="related-grid">
+          <!-- Produto 1: Piano TP-200C -->
+          <div class="related-card">
+            <div class="related-image">
+              <img src="img/tp200c.png" alt="Piano Tokai TP-200C" />
+            </div>
+            <div class="related-info">
+              <h3>Piano Tokai TP-200C</h3>
+              <p class="related-brand">Tokai</p>
+              <div class="related-price">À combinar</div>
+              <a href="produto.html?sku=tp200c" class="related-link">Saiba mais →</a>
+            </div>
+          </div>
+
+          <!-- Produto 2: Órgão MD-750 GOLD -->
+          <div class="related-card">
+            <div class="related-image">
+              <img src="img/md750.png" alt="Órgão Tokai MD-750 GOLD" />
+            </div>
+            <div class="related-info">
+              <h3>Órgão Tokai MD-750 GOLD</h3>
+              <p class="related-brand">Tokai</p>
+              <div class="related-price">À combinar</div>
+              <a href="produto.html?sku=md750" class="related-link">Saiba mais →</a>
+            </div>
+          </div>
+
+          <!-- Produto 3: Violino 4/4 Ébano Series -->
+          <div class="related-card">
+            <div class="related-image">
+              <img src="img/vnm49.png" alt="Violino Michael" />
+            </div>
+            <div class="related-info">
+              <h3>Violino 4/4 Ébano Series</h3>
+              <p class="related-brand">Michael</p>
+              <div class="related-price">À combinar</div>
+              <a href="produto.html?sku=vnm49" class="related-link">Saiba mais →</a>
+            </div>
+          </div>
+
+          <!-- Produto 4: Guitarra ST Vangart -->
+          <div class="related-card">
+            <div class="related-image">
+              <img src="img/gmv200.png" alt="Guitarra Michael Vangart" />
+            </div>
+            <div class="related-info">
+              <h3>Guitarra ST Vangart</h3>
+              <p class="related-brand">Michael</p>
+              <div class="related-price">À combinar</div>
+              <a href="produto.html?sku=gmv200" class="related-link">Saiba mais →</a>
+            </div>
+          </div>
+
+          <!-- Produto 5: Saxofone Alto Vogga -->
+          <div class="related-card">
+            <div class="related-image">
+              <img src="img/vsas701n.png" alt="Saxofone Alto Vogga" />
+            </div>
+            <div class="related-info">
+              <h3>Saxofone Alto Mib</h3>
+              <p class="related-brand">Vogga</p>
+              <div class="related-price">À combinar</div>
+              <a href="produto.html?sku=vsas701n" class="related-link">Saiba mais →</a>
+            </div>
+          </div>
+
+          <!-- Produto 6: Flauta Transversal Vogga -->
+          <div class="related-card">
+            <div class="related-image">
+              <img src="img/vsfl701n.png" alt="Flauta Vogga Niquelada" />
+            </div>
+            <div class="related-info">
+              <h3>Flauta Transversal Dó</h3>
+              <p class="related-brand">Vogga</p>
+              <div class="related-price">À combinar</div>
+              <a href="produto.html?sku=vsfl701n" class="related-link">Saiba mais →</a>
+            </div>
+          </div>
+
+          <!-- Produto 7: Trombone de Pisto Tokai -->
+          <div class="related-card">
+            <div class="related-image">
+              <img src="img/tp200.png" alt="Trombone Tokai" />
+            </div>
+            <div class="related-info">
+              <h3>Trombone de Pisto Sib</h3>
+              <p class="related-brand">Tokai</p>
+              <div class="related-price">À combinar</div>
+              <a href="produto.html?sku=tp200" class="related-link">Saiba mais →</a>
+            </div>
+          </div>
+
+          <!-- Produto 8: Ukulele Tenor Michael -->
+          <div class="related-card">
+            <div class="related-image">
+              <img src="img/mk27.png" alt="Ukulele Michael" />
+            </div>
+            <div class="related-info">
+              <h3>Ukulele Tenor Zibra Wood</h3>
+              <p class="related-brand">Michael</p>
+              <div class="related-price">À combinar</div>
+              <a href="produto.html?sku=mk27" class="related-link">Saiba mais →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--! ==================== BANNERS PROMOCIONAIS ==================== -->
+      <section class="promo-banners">
+        <div id="promo-grid">
+          <a href="violoes.html" class="promo-card">
+            <img
+              src="img/banner-pianos.png"
+              alt="Confira Violões - Conheça os produtos"
+            />
+          </a>
+          <a href="violinos.html" class="promo-card">
+            <img
+              src="img/banner-violinos.png"
+              alt="Confira Violinos - Conheça os produtos"
+            />
+          </a>
+          <a href="orgaos.html" class="promo-card">
+            <img
+              src="img/banner-orgaos.png"
+              alt="Confira Órgãos - Conheça os produtos"
+            />
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!--! ==================== FOOTER ==================== -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <img src="img/logo-branca.png" alt="Sonho Meu" />
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-col">
+              <h4>Institucional</h4>
+              <ul>
+                <li><a href="#">Sobre nós</a></li>
+                <li><a href="#">Fotos</a></li>
+                <li><a href="#">Escola</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Produtos</h4>
+              <ul>
+                <li><a href="index.html#marcas-section">Marcas</a></li>
+                <li><a href="index.html#promo-grid">Categorias</a></li>
+                <li><a href="todos-produtos.html">Instrumentos</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Atendimento</h4>
+              <ul>
+                <li><a href="https://wa.me/553186421895">WhatsApp</a></li>
+                <li><a href="#">Email</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+          <span class="rights"
+            >© 2026 Sonho Meu - Instrumentos Musicais. Todos os direitos
+            reservados.</span
+          >
+          <span class="dev"
+            >Desenvolvido por
+            <a href="https://github.com/davisouza6">@davisouza6</a></span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="menu.js"></script>
+    <script src="cart.js"></script>
+  </body>
+</html>
