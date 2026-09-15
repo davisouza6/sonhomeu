@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quem Somos - Sonho Meu</title>
+    <meta name="description" content="Conheça a história do Sonho Meu: mais de 25 anos unindo música, educação, musicoterapia e recreação, em Vespasiano e região." />
+    <link rel="icon" href="img/logo-simples.png" type="image/png">
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+
+    <script src="menu.js" defer></script>
+   <script src="cart.js" defer></script>
+   <script src="produtos.js" defer></script>
+   <script src="search.js" defer></script>
+
+    <!-- CSS Base -->
+    <link rel="stylesheet" href="produto.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .pagina-sobre {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 48px 32px 72px;
+        }
+
+        /* card principal */
+        .sobre-hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .sobre-hero h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .sobre-hero .subtitle {
+            font-size: 16px;
+            color: var(--text-gray);
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* cards de texto */
+        .sobre-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 36px 40px;
+            margin-bottom: 32px;
+        }
+
+        .sobre-card h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 12px;
+            display: inline-block;
+        }
+
+        .sobre-card h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .sobre-card p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 16px;
+        }
+
+        .sobre-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .sobre-linha {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px !important;
+        }
+
+        .sobre-final {
+            font-style: italic;
+            color: var(--primary-dark);
+            font-weight: 600;
+            margin-top: 20px !important;
+        }
+
+        /* o que oferecemos */
+        .sobre-valores {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .sobre-valores h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .valores-intro {
+            font-size: 15px;
+            color: var(--text-gray);
+            max-width: 520px;
+            margin: 0 auto 28px;
+            line-height: 1.6;
+        }
+
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .valor-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 28px 16px;
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+        }
+
+        .valor-card:hover {
+            border-color: var(--primary-light);
+        }
+
+        .valor-icone {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+        }
+
+        .valor-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* destaque / citação */
+        .sobre-destaque {
+            background: var(--primary);
+            color: var(--white);
+            border-radius: var(--radius);
+            padding: 36px 40px;
+            margin-bottom: 32px;
+            text-align: center;
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.7;
+        }
+
+        /* mapa */
+        .sobre-mapa {
+            text-align: center;
+        }
+
+        .sobre-mapa h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .mapa-subtitle {
+            font-size: 15px;
+            color: var(--text-gray);
+            margin-bottom: 24px;
+        }
+
+        .mapa-frame {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .mapa-frame iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* info profissional (musicoterapia) */
+        .sobre-info-profissional {
+            background: var(--bg-light);
+            border-left: 4px solid var(--primary);
+            border-radius: var(--radius-sm);
+            padding: 16px 24px;
+            margin-top: 20px;
+        }
+
+        .sobre-info-profissional strong {
+            display: block;
+            font-size: 16px;
+            color: var(--text-dark);
+        }
+
+        .sobre-info-profissional span {
+            display: block;
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-top: 2px;
+        }
+
+        /* aulas */
+        .aulas-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .aula-chip {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 999px;
+            transition: var(--transition);
+        }
+
+        .aula-chip:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        .pagina-sobre [id] {
+            scroll-margin-top: 110px;
+        }
+
+        /* responsivo */
+        @media (max-width: 768px) {
+            .pagina-sobre {
+                padding: 32px 16px 48px;
+            }
+
+            .sobre-hero h1 {
+                font-size: 28px;
+            }
+
+            .sobre-card {
+                padding: 28px 24px;
+            }
+
+            .sobre-destaque {
+                padding: 28px 24px;
+                font-size: 16px;
+            }
+
+            .valores-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .valores-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+  <body>
+    <!-- header -->
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="img/logo-colorida.jpg" alt="Sonho Meu" />
+          </a>
+        </div>
+
+        <nav class="nav-menu" id="navMenu">
+          <ul>
+            <li><a href="violoes.html" class="nav-link">Violões</a></li>
+            <li><a href="violinos.html" class="nav-link">Violinos</a></li>
+            <li><a href="orgaos.html" class="nav-link">Órgãos</a></li>
+            <li><a href="todos-produtos.html" class="nav-link">Instrumentos</a></li>
+            <li><a href="index.html#marcas-section" class="nav-link">Marcas</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="search-box" id="searchBox">
+    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input type="text" id="searchInput" class="search-input"               placeholder="Buscar instrumentos..." autocomplete="off">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+          <a href="carrinho.html" class="cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+              <path
+                fill="currentColor"
+                d="M256 144C256 108.7 284.7 80 320 80C355.3 80 384 108.7 384 144L384 192L256 192L256 144zM208 192L144 192C117.5 192 96 213.5 96 240L96 448C96 501 139 544 192 544L448 544C501 544 544 501 544 448L544 240C544 213.5 522.5 192 496 192L432 192L432 144C432 82.1 381.9 32 320 32C258.1 32 208 82.1 208 144L208 192zM232 240C245.3 240 256 250.7 256 264C256 277.3 245.3 288 232 288C218.7 288 208 277.3 208 264C208 250.7 218.7 240 232 240zM384 264C384 250.7 394.7 240 408 240C421.3 240 432 250.7 432 264C432 277.3 421.3 288 408 288C394.7 288 384 277.3 384 264z"
+              />
+            </svg>
+            <span class="cart-badge">0</span>
+          </a>
+          <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-controls="navMenu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <div class="nav-overlay" id="navOverlay"></div>
+      </div>
+    </header>
+
+    <!-- conteúdo principal -->
+    <main>
+      <section class="pagina-sobre">
+
+        <div class="sobre-hero">
+          <h1>Quem Somos</h1>
+          <p class="subtitle">Mais de 25 anos transformando sonhos em música, educação e cuidado, em Vespasiano e região.</p>
+        </div>
+
+        <div class="sobre-card">
+          <h2>Nossa história</h2>
+          <p>O Sonho Meu é muito mais do que um espaço. É a realização de um sonho que vem sendo construído com muita dedicação, amor e perseverança.</p>
+          <p>Tudo começou com uma simples aula de música, com o desejo de ajudar as irmãs na Congregação Cristã no Brasil (CCB). Aos poucos, aquele pequeno começo foi crescendo e tomando novos caminhos.</p>
+          <p>Vieram os estudos, a busca por conhecimento, a passagem pela UFMG e pela UEMG, novos aprendizados e muitas experiências. E, ao longo dessa caminhada, a música foi se transformando em uma forma de ensinar, cuidar, acolher e proporcionar novas possibilidades para as pessoas.</p>
+          <p>Assim nasceu o Espaço Sonho Meu: um lugar pensado para unir música, educação, musicoterapia, recreação, natureza e acolhimento.</p>
+          <p>Hoje, o sonho também se amplia através da venda de instrumentos musicais, permitindo que nossos alunos e outras pessoas possam conhecer, escolher, manusear e experimentar diferentes instrumentos, tornando mais acessível a realização do sonho de aprender música.</p>
+        </div>
+
+        <div class="sobre-valores">
+          <h2>O que buscamos oferecer</h2>
+          <p class="valores-intro">Aqui, acreditamos que cada pessoa pode descobrir uma nova possibilidade através da música.</p>
+
+          <div class="valores-grid">
+            <div class="valor-card">
+              <div class="valor-icone">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+              </div>
+              <h3>Aprender</h3>
+            </div>
+
+            <div class="valor-card">
+              <div class="valor-icone">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"></path>
+                </svg>
+              </div>
+              <h3>Cuidar</h3>
+            </div>
+
+            <div class="valor-card">
+              <div class="valor-icone">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                  <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                  <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+              </div>
+              <h3>Brincar</h3>
+            </div>
+
+            <div class="valor-card">
+              <div class="valor-icone">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <h3>Realizar sonhos</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="sobre-destaque">
+          Porque sonhos verdadeiros não acontecem de uma hora para outra.<br>
+          Eles são construídos com fé, dedicação, conhecimento, trabalho e muito amor.
+        </div>
+
+        <div class="sobre-card" id="musicoterapia">
+          <h2>Musicoterapia na infância e adolescência</h2>
+          <p>Atendimento musicoterapêutico especializado, com atenção especial às necessidades de crianças e adolescentes, incluindo demandas relacionadas a neurodivergências.</p>
+          <p>Por meio da música e de experiências musicais planejadas, o atendimento busca favorecer aspectos como atenção, concentração, comunicação, expressão emocional, interação social, coordenação motora e autoestima, respeitando a individualidade de cada paciente.</p>
+          <p class="sobre-final">Cada pessoa tem seu próprio ritmo. Na musicoterapia, transformamos a música em uma possibilidade de desenvolvimento, expressão e acolhimento.</p>
+
+          <div class="sobre-info-profissional">
+            <strong>Fabiana Camargos</strong>
+            <span>Musicoterapeuta</span>
+            <span>APEMEMG 01-0197</span>
+          </div>
+        </div>
+
+        <div class="sobre-valores" id="aulas">
+          <h2>Aulas</h2>
+          <p class="valores-intro">Oferecemos aulas para todos os níveis, nos seguintes instrumentos e modalidades:</p>
+
+          <div class="aulas-grid">
+            <span class="aula-chip">Musicalização Infantil</span>
+            <span class="aula-chip">Teclado</span>
+            <span class="aula-chip">Piano</span>
+            <span class="aula-chip">Órgão</span>
+            <span class="aula-chip">Flauta Doce</span>
+            <span class="aula-chip">Flauta Transversal</span>
+            <span class="aula-chip">Violino</span>
+            <span class="aula-chip">Violão</span>
+            <span class="aula-chip">Saxofone</span>
+            <span class="aula-chip">Canto</span>
+            <span class="aula-chip">Clarinete</span>
+            <span class="aula-chip">Trompete</span>
+            <span class="aula-chip">Gaita</span>
+          </div>
+        </div>
+
+        <div class="sobre-card">
+          <h2>Também vendemos instrumentos</h2>
+          <p>E agora estamos aqui, dando mais um passo nessa caminhada e realizando sonhos através da música.</p>
+          <p>O Sonho Meu também passou a oferecer instrumentos musicais, trazendo marcas como Tokai, Vogga, Michael e diversas outras opções, por meio de parceiros e fornecedores.</p>
+          <p>Tudo pensado para atender não somente aos nossos alunos, mas também ao público de Vespasiano e toda a nossa região.</p>
+
+          <p class="sobre-linha">Aqui, cada instrumento representa uma possibilidade.</p>
+          <p class="sobre-linha">A possibilidade de uma criança começar a aprender música.</p>
+          <p class="sobre-linha">De um jovem descobrir seu talento.</p>
+          <p>De um adulto realizar aquele sonho que estava guardado há tantos anos.</p>
+
+          <p>Queremos que as pessoas possam conhecer, escolher, manusear e experimentar o instrumento que desejam, encontrando aquilo que realmente combina com seus sonhos e objetivos.</p>
+
+          <p class="sobre-linha">Porque, para nós, vender um instrumento não é simplesmente entregar um produto.</p>
+          <p class="sobre-linha">É entregar uma oportunidade.</p>
+          <p>É ajudar alguém a dar o primeiro passo para transformar um sonho em realidade.</p>
+
+          <p class="sobre-final">E assim seguimos... construindo, cuidando, ensinando e realizando sonhos através da música.</p>
+        </div>
+
+        <div class="sobre-mapa">
+          <h2>Onde ficamos</h2>
+          <div class="mapa-frame">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.7213972704753!2d-43.9379146!3d-19.681888000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa67d626849362b%3A0xd66ba1242b666aa8!2sEspa%C3%A7o%20Multidisciplinar%20Sonho%20Meu%2FRemulte!5e0!3m2!1spt-BR!2sbr!4v1789325728182!5m2!1spt-BR!2sbr"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              title="Localização do Espaço Sonho Meu no Google Maps"
+            ></iframe>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <img src="img/logo-branca.png" alt="Sonho Meu" />
+            <!-- TODO Davi: confirmar com a Fabiana o endereço completo e o horário
+                 de atendimento e trocar as duas linhas abaixo. -->
+            <p class="footer-endereco">
+              Espaço Multidisciplinar Sonho Meu<br />
+              Vespasiano, MG<br />
+              (31) 8642-1895
+            </p>
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-col">
+              <h4>Institucional</h4>
+              <ul>
+                <li><a href="sobre.html#aulas">Aulas</a></li>
+                <li><a href="sobre.html#musicoterapia">Musicoterapia</a></li>
+                <li><a href="sobre.html">Quem Somos</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Produtos</h4>
+              <ul>
+                <li><a href="index.html#marcas-section">Marcas</a></li>
+                <li><a href="index.html#promo-grid">Categorias</a></li>
+                <li><a href="todos-produtos.html">Instrumentos</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Atendimento</h4>
+              <ul>
+                <li><a href="https://wa.me/553186421895">WhatsApp</a></li>
+                <li><a href="https://www.instagram.com/sonhomeu_musica/">Instagram</a></li>
+                <li><a href="mailto:fabianacamargos6@gmail.com">Email</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+          <span class="rights"
+            >© 2026 Sonho Meu - Instrumentos Musicais. Todos os direitos
+            reservados.</span
+          >
+          <span class="dev"
+            >Desenvolvido por
+            <a href="https://github.com/davisouza6">@davisouza6</a></span
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
